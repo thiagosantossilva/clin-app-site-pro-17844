@@ -1,6 +1,6 @@
+import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Footer } from "@/components/Footer";
 import { 
   Sofa, 
   Shield, 
@@ -15,7 +15,6 @@ import {
   Armchair
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 export default function UpholsteryCleaning() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -131,7 +130,7 @@ export default function UpholsteryCleaning() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <Layout>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-accent py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -373,8 +372,6 @@ export default function UpholsteryCleaning() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </Layout>
   );
 }

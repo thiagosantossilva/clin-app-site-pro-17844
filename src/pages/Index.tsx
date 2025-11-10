@@ -1,3 +1,4 @@
+import { Layout } from "@/components/Layout";
 import { Hero } from "@/components/Hero";
 import { ServicesOverview } from "@/components/ServicesOverview";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -8,11 +9,10 @@ import { SubscriptionPlans } from "@/components/SubscriptionPlans";
 import { AppDownload } from "@/components/AppDownload";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
-import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <Layout>
       <Hero />
       <ServicesOverview />
       <HowItWorks />
@@ -23,8 +23,7 @@ const Index = () => {
       <AppDownload />
       <Testimonials />
       <FAQ />
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

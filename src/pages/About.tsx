@@ -1,7 +1,7 @@
+import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, Award, Users, CheckCircle, Target, Shield, TrendingUp, Heart } from "lucide-react";
-import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -91,7 +91,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <Layout>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-24 px-4">
         <div className="container mx-auto max-w-6xl text-center">
@@ -245,9 +245,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
