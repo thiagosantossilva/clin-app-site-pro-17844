@@ -4,6 +4,7 @@ import { ServicesOverview } from "@/components/ServicesOverview";
 import { HowItWorks } from "@/components/HowItWorks";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { Advantages } from "@/components/Advantages";
+import { TrustedClients } from "@/components/TrustedClients";
 import { Professionals } from "@/components/Professionals";
 import { SubscriptionPlans } from "@/components/SubscriptionPlans";
 import { AppDownload } from "@/components/AppDownload";
@@ -18,6 +19,7 @@ const Index = () => {
       <HowItWorks />
       <ServicesGrid />
       <Advantages />
+      <TrustedClients />
       <Professionals />
       <SubscriptionPlans />
       <AppDownload />

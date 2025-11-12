@@ -1,65 +1,132 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-const benefits = [
-  "Frequência semanal, quinzenal ou mensal",
-  "Preço fixo e vantajoso",
-  "Escolha sua profissional preferida",
-  "Pagamentos antecipados",
-  "Cancelamento fácil e sem burocracia",
+const plans = [
+  {
+    id: "quinzenal",
+    title: "Quinzenal",
+    badge: null,
+    benefits: [
+      "Agendamento recorrente.",
+      "Profissional preferêncial.",
+      "Descontos de até 15%.",
+      "Suporte Humano via WhatsApp.",
+    ],
+    featured: false,
+  },
+  {
+    id: "semanal",
+    title: "Semanal",
+    badge: "O mais pedido",
+    benefits: [
+      "Seu lar limpo toda semana.",
+      "Profissional preferêncial.",
+      "Descontos de até 20%.",
+      "Suporte Humano via WhatsApp.",
+    ],
+    featured: true,
+  },
+  {
+    id: "comercial",
+    title: "Comercial",
+    badge: null,
+    benefits: [
+      "Multipla",
+      "Agendamento recorrente.",
+      "Profissional preferêncial.",
+      "Horários flexiveis.",
+      "Suporte Humano via WhatsApp.",
+    ],
+    featured: false,
+  },
 ];
 
 export const SubscriptionPlans = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-br from-secondary via-white to-secondary/50">
       <div className="container px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Planos de Assinatura
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-navy to-primary bg-clip-text text-transparent">
+              Planos de assinatura
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Tenha seu serviço regular com preços especiais
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Temos o plano de assinatura ideal para você manter seu lar limpo, cheiroso e feliz.
             </p>
           </div>
 
-          <Card className="shadow-hover border-2 border-accent/20">
-            <CardContent className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold mb-6">Vantagens do Plano</h3>
-                  <ul className="space-y-4">
-                    {benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-4 h-4 text-accent" />
-                        </div>
-                        <span className="text-lg">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-col justify-center items-center text-center bg-secondary rounded-2xl p-8">
-                  <div className="mb-6">
-                    <p className="text-muted-foreground mb-2">Planos a partir de</p>
-                    <p className="text-5xl font-bold text-accent mb-2">R$ 199</p>
-                    <p className="text-muted-foreground">por mês</p>
-                  </div>
-                  <Button
-                    size="lg"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground w-full rounded-full"
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent className="-ml-4">
+              {plans.map((plan) => (
+                <CarouselItem key={plan.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card
+                    className={`h-full transition-all duration-300 ${
+                      plan.featured
+                        ? "border-2 border-accent shadow-hover scale-105 bg-gradient-to-br from-white to-accent/5"
+                        : "border border-border shadow-card hover:shadow-hover"
+                    }`}
                   >
-                    Conheça Nossos Planos
-                  </Button>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    *Valores variam conforme frequência e região
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                    <CardContent className="p-8 flex flex-col h-full">
+                      {/* Badge */}
+                      {plan.badge && (
+                        <div className="mb-4 -mt-2">
+                          <span className="inline-flex items-center gap-1 px-4 py-1.5 bg-gradient-to-r from-accent to-success text-white text-sm font-bold rounded-full shadow-glow">
+                            <Star className="w-4 h-4 fill-current" />
+                            {plan.badge}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Title */}
+                      <h3 className="text-3xl font-bold text-navy mb-6">
+                        {plan.title}
+                      </h3>
+
+                      {/* Benefits */}
+                      <ul className="space-y-4 mb-8 flex-grow">
+                        {plan.benefits.map((benefit, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <Check className="w-4 h-4 text-accent" />
+                            </div>
+                            <span className="text-foreground">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA Button */}
+                      <Button
+                        size="lg"
+                        className={`w-full rounded-full font-bold ${
+                          plan.featured
+                            ? "bg-gradient-to-r from-accent to-success hover:shadow-glow text-white"
+                            : "bg-primary hover:bg-primary/90 text-primary-foreground"
+                        }`}
+                      >
+                        Quero este plano
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-12 border-accent/20 hover:bg-accent hover:text-white" />
+            <CarouselNext className="hidden md:flex -right-12 border-accent/20 hover:bg-accent hover:text-white" />
+          </Carousel>
         </div>
       </div>
     </section>

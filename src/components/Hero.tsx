@@ -37,13 +37,13 @@ export const Hero = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90">
+    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-primary to-accent">
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-30" : "opacity-0"
+              index === currentSlide ? "opacity-20" : "opacity-0"
             }`}
           >
             <img
@@ -53,37 +53,48 @@ export const Hero = () => {
             />
           </div>
         ))}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(31,128,234,0.1),rgba(0,0,0,0))]"></div>
       </div>
 
       <div className="container relative z-10 px-6 md:px-12 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-primary-foreground animate-fade-in">
+        <div className="max-w-5xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-md px-5 py-2.5 rounded-full mb-8 border border-accent/30 animate-fade-in">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+            <span className="text-sm font-semibold text-white">Maior plataforma de limpeza do Sul do Brasil</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white animate-fade-in leading-tight">
             {slides[currentSlide].title}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 animate-fade-in">
+          <p className="text-xl md:text-3xl mb-8 text-white/95 animate-fade-in font-medium">
             {slides[currentSlide].subtitle}
           </p>
-          <p className="text-lg md:text-xl mb-8 text-primary-foreground/80 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl mb-12 text-white/85 max-w-3xl mx-auto leading-relaxed">
             A conexão mais rápida e segura entre profissionais autônomos de limpeza e clientes.
             <br />
-            <strong>Prático, seguro, rápido e fácil.</strong>
+            <strong className="text-accent">Prático, seguro, rápido e fácil.</strong>
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <div className="bg-background/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary-foreground/20">
-              <span className="text-primary-foreground font-semibold">+8 anos no mercado</span>
+          <div className="flex flex-wrap gap-3 justify-center mb-12">
+            <div className="bg-white/15 backdrop-blur-md px-6 py-3.5 rounded-full border border-white/25 shadow-lg hover:bg-white/20 transition-all">
+              <span className="text-white font-bold text-sm md:text-base">+8 anos de experiência</span>
             </div>
-            <div className="bg-background/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary-foreground/20">
-              <span className="text-primary-foreground font-semibold">+200.000 serviços realizados</span>
+            <div className="bg-white/15 backdrop-blur-md px-6 py-3.5 rounded-full border border-white/25 shadow-lg hover:bg-white/20 transition-all">
+              <span className="text-white font-bold text-sm md:text-base">+200.000 serviços realizados</span>
             </div>
-            <div className="bg-background/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary-foreground/20">
-              <span className="text-primary-foreground font-semibold">Maior plataforma do Sul do Brasil</span>
+            <div className="bg-white/15 backdrop-blur-md px-6 py-3.5 rounded-full border border-white/25 shadow-lg hover:bg-white/20 transition-all">
+              <span className="text-white font-bold text-sm md:text-base">R$ 10 milhões faturados</span>
             </div>
           </div>
 
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 rounded-full shadow-hover transition-all hover:scale-105">
-            Simular Valores
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-white text-lg px-10 py-7 rounded-full shadow-glow transition-all hover:scale-105 hover:shadow-hover font-semibold">
+              Simular Valores
+            </Button>
+            <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 text-lg px-10 py-7 rounded-full backdrop-blur-md transition-all hover:scale-105 font-semibold">
+              Baixar o App
+            </Button>
+          </div>
         </div>
       </div>
 

@@ -17,12 +17,12 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-background border-b sticky top-0 z-50">
+    <nav className="bg-white/95 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-primary">
-            Clin Pro
+          <Link to="/" className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:scale-105 transition-transform">
+            Clin App
           </Link>
 
           {/* Desktop Menu */}
